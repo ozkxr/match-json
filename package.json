@@ -1,13 +1,13 @@
 {
   "name": "@ozkxr/match",
   "version": "0.1.0",
-  "description": "",
+  "description": "An JavaScript library to test JSON with some nice features",
   "main": "index.js",
   "scripts": {
     "test": "ava",
     "lint": "eslint ./lib/* index.js"
   },
-  "author": "",
+  "author": "Oscar Menéndez <omenendez7@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.13.0",
