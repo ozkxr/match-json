@@ -16,20 +16,20 @@ You can compare primitives.
 
 ```javascript
 // Numbers
-match(3.1415, 3.1415) // true
+match(3.1415, 3.1415) // => true
 //Strings
-match('Uno Dos Tres', 'Uno Dos Tres') // true
+match('Uno Dos Tres', 'Uno Dos Tres') // => true
 // Booleans
-match(false, false) // true
+match(false, false) // => true
 // And with undefined and null values
-match(undefined, undefined) // true
-match(null, null)  // true
+match(undefined, undefined) // => true
+match(null, null)  // => true
 ```
 And structures (objects and arrays).
 
 ```javascript
-match({ name: 'Link', color: 'green' }, { name: 'Link', color: 'green' }) // true
-match([ 'deku', 'goron', 'zora' ], [ 'deku', 'goron', 'zora' ]) //true
+match({ name: 'Link', color: 'green' }, { name: 'Link', color: 'green' }) // => true
+match([ 'deku', 'goron', 'zora' ], [ 'deku', 'goron', 'zora' ]) // => true
 ```
 
 ### But the nice part starts here ###
@@ -38,14 +38,14 @@ You can match using functions
 
 ```javascript
 // Yeah, with functions!
-match({ name: 'Samus' }, hero => hero.name.length >= 5) // true
+match({ name: 'Samus' }, hero => hero.name.length >= 5) // => true
 ```
 
 And regular expressions
 
 ```javascript
 // Yeah, with RegExp too!
-match('Kvothe', /K*o*t*e/) // true
+match('Kvothe', /K*o*t*e/) // => true
 ```
 
 And everything together!
@@ -58,7 +58,16 @@ match({
       {
         name: { first: /[\w]*/, last: 'White' },
         age: age => age > 18
-      }); // YEAH, true!
+      }); // => YEAH, true!
+```
+
+### Bake ###
+
+Also, you can also predefine an pattern to test JSON.
+
+```
+const nameIsLarge = match.bake({ name: name => name.length > 10  })
+nameIsLarge('Tom') // => false :(
 ```
 
 ## Notes ##
