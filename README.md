@@ -75,7 +75,7 @@ nameIsLarge('Tooooooooom') // => true :D
 
 * Is worth to mention that you only can use JSON-data as the first argument
 of the function. Not functions or RegExp.
-* I made this for test my API endpoints, thats why it only may be used to test JSON data.
+* I made this for test my API endpoints, thats why it only acepts to test JSON data.
 
 ## Contribution ##
 
