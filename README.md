@@ -73,6 +73,20 @@ nameIsLarge('Tom') // => false :(
 nameIsLarge('Tooooooooom') // => true :D
 ```
 
+### Signatures ###
+
+#### Match ####
+
+* `match( a : T, b : T ) : boolean`
+* `match( a : T, test : RegExp ) : boolean`
+* `match( a : T, test : PredicateFunction ) : boolean`
+
+#### Bake ####
+
+* `bake( a: T ) : PredicateFunction`
+
+( where PredicateFunction = ( w : T ) : boolean )
+
 ## Notes ##
 
 * Is worth to mention that you only can use JSON-data as the first argument
