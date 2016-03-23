@@ -68,6 +68,7 @@ Also, you can also predefine an pattern to test JSON.
 ```
 const nameIsLarge = match.bake({ name: name => name.length > 10  })
 nameIsLarge('Tom') // => false :(
+nameIsLarge('Tooooooooom') // => true :D
 ```
 
 ## Notes ##
