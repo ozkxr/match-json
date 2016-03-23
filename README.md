@@ -2,6 +2,8 @@
 
 An JavaScript library to test JSON with some nice features.
 
+It is built to test REST API endpoints but, of course, you can use it to whatever you want.
+
 ## Install ##
 I put it in my own npm scope because `match` is another existent lib and I have a big trouble naming things. Any suggestion is welcome.
 ```
