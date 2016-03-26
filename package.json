@@ -1,5 +1,5 @@
 {
-  "name": "@ozkxr/match",
+  "name": "match-json",
   "version": "0.1.0",
   "description": "An JavaScript library to test JSON with some nice features",
   "main": "index.js",
