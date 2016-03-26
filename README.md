@@ -64,7 +64,7 @@ match({
 
 ### Bake ###
 
-Also, you can also predefine an pattern to test JSON.
+Also, you can also predefine an expected pattern.
 
 ```
 const nameIsLarge = match.bake({ name: name => name.length > 10  })
