@@ -1,7 +1,8 @@
 {
   "name": "match-json",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An JavaScript library to test JSON with some nice features",
+  "keywords": [ "match", "json" ],
   "main": "index.js",
   "scripts": {
     "test": "ava",
