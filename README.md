@@ -47,7 +47,7 @@ And regular expressions
 
 ```javascript
 // Yeah, with RegExp too!
-match('Kvothe', /K*o*t*e/) // => true
+match('Kvothe', /K.ot.*e?/) // => true
 ```
 
 And everything together!
