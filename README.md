@@ -1,6 +1,6 @@
 # match [![Build Status](https://travis-ci.org/ozkxr/match.svg?branch=master)](https://travis-ci.org/ozkxr/match) #
 
-An JavaScript library to test JSON with some nice features.
+A JavaScript library to test JSON with some nice features.
 
 It is built to test REST API endpoints but, of course, you can use it to whatever you want.
 
