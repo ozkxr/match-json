@@ -1,6 +1,6 @@
 {
   "name": "match-json",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A JavaScript library to test JSON with some nice features",
   "keywords": [
     "match",
@@ -15,7 +15,8 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^2.2.0",
-    "eslint": "^2.4.0",
-    "eslint-config-airbnb": "^6.1.0"
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "prettier-eslint": "^9.0.0"
   }
 }
