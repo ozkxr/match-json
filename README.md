@@ -5,11 +5,12 @@ A JavaScript library to test JSON with some nice features.
 It is built to test REST API endpoints but, of course, you can use it to whatever you want.
 
 ## Install ##
-```
+
+```bash
 npm install match-json
 ```
 
-## But, what it does? ##
+## Functionality ##
 
 Of course, match JSON objects.
 
@@ -26,6 +27,7 @@ match(false, false) // => true
 match(undefined, undefined) // => true
 match(null, null)  // => true
 ```
+
 And structures (objects and arrays).
 
 ```javascript
@@ -66,7 +68,7 @@ match({
 
 Also, you can also predefine an expected pattern.
 
-```
+```javascript
 const nameIsLarge = match.bake({ name: name => name.length > 10  })
 nameIsLarge('Tom') // => false :(
 nameIsLarge('Tooooooooom') // => true :D
@@ -74,13 +76,13 @@ nameIsLarge('Tooooooooom') // => true :D
 
 ### Signatures ###
 
-#### Match ####
+#### Match signature ####
 
 * `match( a : T, b : T ) : boolean`
 * `match( a : T, test : RegExp ) : boolean`
 * `match( a : T, test : PredicateFunction ) : boolean`
 
-#### Bake ####
+#### Bake signature ####
 
 * `bake( a: T ) : PredicateFunction`
 
