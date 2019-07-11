@@ -4,7 +4,10 @@
   "description": "A JavaScript library to test JSON APIs",
   "keywords": [
     "match",
-    "json"
+    "json",
+    "api",
+    "test",
+    "revursive"
   ],
   "main": "index.js",
   "scripts": {
