@@ -1,8 +1,11 @@
 {
   "name": "match-json",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A JavaScript library to test JSON with some nice features",
-  "keywords": [ "match", "json" ],
+  "keywords": [
+    "match",
+    "json"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "ava",
@@ -11,7 +14,7 @@
   "author": "Oscar Menéndez <omenendez7@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.13.0",
+    "ava": "^2.2.0",
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^6.1.0"
   }

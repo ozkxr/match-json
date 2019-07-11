@@ -90,5 +90,5 @@ test('match:everything_together', t => t.true(match({
  */
  test('match:bake', t => {
    let matchbake = match.bake({name: { first: /[\w]*/, last: 'White' } });
-   return matchbake({ name: { first: /[\w]*/, last: 'White' } });
+   return t.true(matchbake({ name: { first: 'Walter', last: 'White' } }));
  });
