@@ -20,5 +20,9 @@
     "ava": "^2.2.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ozkxr/match"
   }
 }
