@@ -16,7 +16,6 @@
   "devDependencies": {
     "ava": "^2.2.0",
     "eslint": "^6.0.1",
-    "eslint-config-airbnb": "^17.1.1",
-    "prettier-eslint": "^9.0.0"
+    "eslint-config-airbnb": "^17.1.1"
   }
 }
