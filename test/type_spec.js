@@ -21,4 +21,4 @@ test('type:function', t => t.true(type(function(){}) === 'function'));
 
 test('type:object', t => t.true(type({ prop: 'value' }) === 'object'));
 
-test('type:array', t => t.true(type( [ 1, 2 ]) === 'array'));
+test('type:array', t => t.true(type([ 1, 2 ]) === 'array'));
