@@ -21,4 +21,10 @@ test('type:function', t => t.true(type(function(){}) === 'function'));
 
 test('type:object', t => t.true(type({ prop: 'value' }) === 'object'));
 
+test('type:object_with_constructor', t => t.true(type(new Object()) === 'object'));
+
 test('type:array', t => t.true(type([ 1, 2 ]) === 'array'));
+
+test('type:map', t => t.true(type(new Map()) === 'map'));
+
+test('type:set', t => t.true(type(new Set()) === 'set'));

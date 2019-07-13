@@ -3,7 +3,7 @@
 const test = require('ava');
 const match = require('../');
 
-/*
+/**
  * Null values
  */
 test('match:null', t => t.true(match(null, null)));
@@ -12,7 +12,7 @@ test('match:null_vs_not_null', t => t.false(match(null, 0)));
 
 test('match:not_null_vs_null', t => t.false(match(0, null)));
 
-/*
+/**
  * Primitive types
  */
 test('match:string', t => t.true(match('This is a string!', 'This is a string!')));
@@ -71,7 +71,39 @@ test('match:array_different', t => t.false(match([ 1, false, 'hola' ], [ 1, true
 
 test('match:array_left_more_values', t => t.false(match([ 1, 2, 'hola' ], [ 1, 2 ])));
 
-test('match:array_right_more_values', t => t.false(match([ 1, 2 ], [ 1, 2, 'hola'])));
+test('match:array_right_more_values', t => t.false(match([ 1, 2 ], [ 1, 2, 'hola' ])));
+
+/**
+ * Maps
+ */
+test('match:map_empty', t => t.true(match({}, new Map())));
+
+test('match:map_equal', t => t.true(match({ name: 'oscar' }, new Map([[ 'name', 'oscar' ]]))));
+
+test('match:map_different', t => t.false(match({ name: 'oscar' }, new Map([[ 'name', 'pedro' ]]))));
+
+test('match:map_with_mote_keys', t => t.false(match({ name: 'oscar' }, new Map([[ 'name', 'oscar' ], [ 'number', 18 ]]))));
+
+test('match:map_with_less_keys', t => t.false(match({ name: '', number: 18 }, new Map([[ 'name', 'oscar' ]]))));
+
+test('match:map_with_regex_and_functions', t => t.true(match({ name: 'oscar', age: 23 }, new Map([[ 'name', /os/ ], [ 'age', x => x > 18 ]]))));
+
+test('match:map_with_regex_and_functions_fails', t => t.false(match({ name: 'oscar', 'age': 23 }, new Map([[ 'name', /ped/ ], [ 'age', x => x > 18 ]]))));
+
+test('match:map_with_regex_and_functions_fails_all', t => t.false(match({ name: 'oscar', age: 23 }, new Map([[ 'name', /ped/ ], [ 'age', x => x < 18 ]]))));
+
+/**
+ * Sets
+ */
+test('match:set_empty', t => t.true(match([], new Set())));
+
+test('match:set', t => t.true(match([ 1, 2, 'hola' ], new Set([ 1, 2, 'hola' ]))));
+
+test('match:set_different', t => t.false(match([ 1, true, 'adios' ], new Set([ 1, false, 'hola' ]))));
+
+test('match:set_with_more_values', t => t.false(match([ 1, 2 ], new Set([ 1, 2, 'hola' ]))));
+
+test('match:set_with_less_values', t => t.false(match([ 1, 2, 'hola' ], new Set([ 1, 2 ]))));
 
 /**
  * And everythong together
