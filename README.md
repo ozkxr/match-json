@@ -1,4 +1,4 @@
-# match-json [![Build Status](https://travis-ci.org/ozkxr/match.svg?branch=master)](https://travis-ci.org/ozkxr/match) #
+# match-json [![Build Status](https://travis-ci.org/ozkxr/match-json.svg?branch=master)](https://travis-ci.org/ozkxr/match) #
 
 A JavaScript library to test JSON APIs.
 
