@@ -32,7 +32,7 @@ test('match:regexp', t => t.true(match('hola k ase?', /k ase/)));
 
 test('match:regexp_no_match', t => t.false(match('hola k ase?', /hello world/)));
 
-/**expected => value => match(value, expected);
+/**
  * Functions
  */
 test('match:function', t => t.true(match(18, function(x) { return x > 5})));
