@@ -106,15 +106,28 @@ test('match:set_with_more_values', t => t.false(match([ 1, 2 ], new Set([ 1, 2, 
 test('match:set_with_less_values', t => t.false(match([ 1, 2, 'hola' ], new Set([ 1, 2 ]))));
 
 /**
+ * Native JSON types
+ */
+test('match:types_number', t => t.true(match(3.1415, Number)));
+test('match:types_number_wrong', t => t.false(match(3.1415, String)));
+test('match:types_string', t => t.true(match('a boring string', String)));
+test('match:types_string_wrong', t => t.false(match('a boring string', Boolean)));
+test('match:types_boolean', t => t.true(match(true, Boolean)));
+test('match:types_boolean_wrong', t => t.false(match(false, String)));
+
+
+/**
  * And everythong together
  */
 test('match:everything_together', t => t.true(match({
         name: { first: 'Walter', last: 'White' },
-        age: 51
+        age: 51,
+        breakingBad: true
       },
       {
         name: { first: /[\w]*/, last: 'White' },
-        age: age => age > 18
+        age: age => age > 18,
+        breakingBad: Boolean
       })));
 
 /**

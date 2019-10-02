@@ -44,11 +44,22 @@ You can match using functions
 match({ name: 'Samus' }, hero => hero.name.length >= 5) // => true
 ```
 
-And regular expressions
+Regular expressions
 
 ```javascript
 // Yeah, with RegExp too!
 match('Kvothe', /K.ot.*e?/) // => true
+```
+
+Check JSON types using contructor functions
+
+```javascript
+// Yeah, with RegExp too!
+match(5, Number) // => true
+
+match('Hola, mundo', String) // => true
+
+match(false, Boolean) // => true
 ```
 
 And everything together!
@@ -56,12 +67,14 @@ And everything together!
 ```javascript
 match({
         name: { first: 'Walter', last: 'White' },
-        age: 51
+        age: 51,
+        breakingBad: true
       },
       {
         name: { first: /[\w]*/, last: 'White' },
-        age: age => age > 18
-      }); // => YEAH, true!
+        age: age => age > 18,
+        breakingBad: Boolean
+      }); // => true
 ```
 
 ### Bake ###
@@ -70,8 +83,8 @@ Also, you can also predefine an expected pattern.
 
 ```javascript
 const nameIsLarge = match.bake({ name: name => name.length > 10  })
-nameIsLarge('Tom') // => false :(
-nameIsLarge('Tooooooooom') // => true :D
+nameIsLarge('Tom') // => false
+nameIsLarge('Tooooooooom') // => true
 ```
 
 ### Signatures ###
@@ -81,12 +94,14 @@ nameIsLarge('Tooooooooom') // => true :D
 * `match( a : T, b : T ) : boolean`
 * `match( a : T, test : RegExp ) : boolean`
 * `match( a : T, test : PredicateFunction ) : boolean`
+* `match( a : T, test : JSONTypeConstructorFunction ) : boolean`
 
 #### Bake signature ####
 
 * `bake( a: T ) : PredicateFunction`
 
 ( where PredicateFunction = ( w : T ) : boolean )
+( where JSONTypeConstructorFunction = Number, String OR Boolean )
 
 ## Notes ##
 
