@@ -1,7 +1,7 @@
 'use strict';
 
-const test = require('ava');
-const type = require('../lib/type');
+import test from 'ava';
+import type from '../lib/type';
 
 test('type:string', t => t.true(type('This is a string!') === 'string'));
 

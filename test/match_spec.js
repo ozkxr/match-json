@@ -1,7 +1,7 @@
 'use strict';
 
-const test = require('ava');
-const match = require('../');
+import test from'ava';
+import match from '..';
 
 /**
  * Null values
@@ -50,9 +50,9 @@ test('match:object_equal', t => t.true(match({ name: 'oscar' }, { name: 'oscar' 
 
 test('match:object_different', t => t.false(match({ name: 'pedro' }, { name: 'oscar' })));
 
-test('match:object_more_keys_right', t => t.false(match({ name: 'oscar', number: 18 }, { name: 'oscar' })));
+test('match:object_more_keys_value', t => t.false(match({ name: 'oscar', number: 18 }, { name: 'oscar' })));
 
-test('match:object_more_keys_left', t => t.false(match({ name: 'oscar' }, { name: '', number: 18 })));
+test('match:object_more_keys_expected', t => t.false(match({ name: 'oscar' }, { name: '', number: 18 })));
 
 test('match:object_with_regex_and_functions', t => t.true(match({ name: 'oscar', age: 23 }, { name: /os/, age: x => x > 18 })));
 
@@ -115,9 +115,8 @@ test('match:types_string_wrong', t => t.false(match('a boring string', Boolean))
 test('match:types_boolean', t => t.true(match(true, Boolean)));
 test('match:types_boolean_wrong', t => t.false(match(false, String)));
 
-
 /**
- * And everythong together
+ * And everything together
  */
 test('match:everything_together', t => t.true(match({
         name: { first: 'Walter', last: 'White' },

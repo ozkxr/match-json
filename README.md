@@ -1,118 +1,139 @@
-# match-json [![Build Status](https://travis-ci.org/ozkxr/match-json.svg?branch=master)](https://travis-ci.org/ozkxr/match) #
+# match-json [![Build Status](https://travis-ci.org/ozkxr/match-json.svg?branch=master)](https://travis-ci.org/ozkxr/match)
 
 A JavaScript library to test JSON APIs.
 
-It is built to test REST API endpoints but, of course, you can use it to whatever you want.
+It is built to test REST API endpoints but, of course, it can used to whatever you want.
 
-## Install ##
+## Install
 
 ```bash
 npm install match-json
 ```
 
-## Functionality ##
+## Functionality
 
-Of course, match JSON objects.
+`match-json` works with:
 
-You can compare primitives.
+- JSON Primitives.
 
 ```javascript
 // Numbers
-match(3.1415, 3.1415) // => true
+match(3.1415, 3.1415); // => true
+
 //Strings
-match('Uno Dos Tres', 'Uno Dos Tres') // => true
+match("Uno Dos Tres", "Uno Dos Tres"); // => true
+
 // Booleans
-match(false, false) // => true
+match(false, false); // => true
+
 // And with undefined and null values
-match(undefined, undefined) // => true
-match(null, null)  // => true
+match(undefined, undefined); // => true
+match(null, null); // => true
 ```
 
-And structures (objects and arrays).
+- Structures (objects and arrays).
 
 ```javascript
-match({ name: 'Link', color: 'green' }, { name: 'Link', color: 'green' }) // => true
-match([ 'deku', 'goron', 'zora' ], [ 'deku', 'goron', 'zora' ]) // => true
+match({ name: "Link", color: "green" }, { name: "Link", color: "green" }); // => true
+match(["deku", "goron", "zora"], ["deku", "goron", "zora"]); // => true
 ```
 
-### But the nice part starts here ###
+### But the nice part starts here
 
-You can match using functions
+- Functions
 
 ```javascript
 // Yeah, with functions!
-match({ name: 'Samus' }, hero => hero.name.length >= 5) // => true
+match({ name: "Samus" }, hero => hero.name.length >= 5); // => true
 ```
 
-Regular expressions
+- Regular expressions
 
 ```javascript
 // Yeah, with RegExp too!
-match('Kvothe', /K.ot.*e?/) // => true
+match("Kvothe", /K.ot.*e?/); // => true
 ```
 
-Check JSON types using contructor functions
+Also, can check JSON types using constructor functions
 
 ```javascript
 // Yeah, with RegExp too!
-match(5, Number) // => true
+match(5, Number); // => true
 
-match('Hola, mundo', String) // => true
+match("Hola, mundo", String); // => true
 
-match(false, Boolean) // => true
+match(false, Boolean); // => true
 ```
 
 And everything together!
 
 ```javascript
-match({
-        name: { first: 'Walter', last: 'White' },
-        age: 51,
-        breakingBad: true
-      },
-      {
-        name: { first: /[\w]*/, last: 'White' },
-        age: age => age > 18,
-        breakingBad: Boolean
-      }); // => true
+match(
+  {
+    name: { first: "Walter", last: "White" },
+    age: 51,
+    breakingBad: true
+  },
+  {
+    name: { first: /[\w]*/, last: "White" },
+    age: age => age > 18,
+    breakingBad: Boolean
+  }
+); // => true
 ```
 
-### Bake ###
+### Partials
 
-Also, you can also predefine an expected pattern.
+`match-json` also have support for partials.
+
+```
+import match, { partial } from 'match-json';
+
+// No partial mode
+match({ id : 5, name: 'john' }, { id: Number }) // => false
+
+// Partial mode
+partial({ id : 5, name: 'john' }, { id: Number }) // => true
+```
+
+NOTE: Only objects (and not arrays) are affected by partial mode.
+
+### Bake
+
+`match-json` also provides a `bake` function that can be used to predefine an expected pattern.
 
 ```javascript
-const nameIsLarge = match.bake({ name: name => name.length > 10  })
-nameIsLarge('Tom') // => false
-nameIsLarge('Tooooooooom') // => true
+const nameIsLarge = match.bake({ name: name => name.length > 10 });
+nameIsLarge("Tom"); // => false
+nameIsLarge("Tooooooooom"); // => true
 ```
 
-### Signatures ###
+### Signatures
 
-#### Match signature ####
+#### Match signature
 
-* `match( a : T, b : T ) : boolean`
-* `match( a : T, test : RegExp ) : boolean`
-* `match( a : T, test : PredicateFunction ) : boolean`
-* `match( a : T, test : JSONTypeConstructorFunction ) : boolean`
+- `match( a : T, b : T, partialMode : boolean? ) : boolean`
+- `match( a : T, test : RegExp, partialMode : boolean? ) : boolean`
+- `match( a : T, test : PredicateFunction, partialMode : boolean? ) : boolean`
+- `match( a : T, test : JSONTypeConstructorFunction, partialMode : boolean? ) : boolean`
 
-#### Bake signature ####
+#### Bake signature
 
-* `bake( a: T ) : PredicateFunction`
+- `bake( a: T, partialMode : boolean? ) : PredicateFunction`
 
-( where PredicateFunction = ( w : T ) : boolean )
-( where JSONTypeConstructorFunction = Number, String OR Boolean )
+- ( where PredicateFunction = ( w : T ) : boolean )
+- ( where JSONTypeConstructorFunction = Number, String OR Boolean )
 
-## Notes ##
+## Notes
 
-* Is worth to mention that you only can use JSON-data as the first argument
-of the function. Not functions or RegExp.
-* I made this for test my API endpoints, thats why it only acepts to test JSON data.
+- Is worth to mention that you only can use JSON-data as the first argument
+  of the function. Not functions or RegExp.
+- I made this for test my API endpoints, thats why it only acepts to test JSON data.
 
-## Contribution ##
+## Contribution
 
 Feel free to open an issue and/or make a PR if you found a bug or think in a way this lib or even the README can be improved.
 
-## License ##
+## License
 
 MIT
