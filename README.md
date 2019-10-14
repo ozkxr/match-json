@@ -12,9 +12,7 @@ npm install match-json
 
 ## Functionality
 
-`match-json` works with:
-
-- JSON Primitives.
+Match JSON Primitives.
 
 ```javascript
 // Numbers
@@ -31,7 +29,7 @@ match(undefined, undefined); // => true
 match(null, null); // => true
 ```
 
-- Structures (objects and arrays).
+Match Structures (objects and arrays).
 
 ```javascript
 match({ name: "Link", color: "green" }, { name: "Link", color: "green" }); // => true
@@ -40,21 +38,21 @@ match(["deku", "goron", "zora"], ["deku", "goron", "zora"]); // => true
 
 ### But the nice part starts here
 
-- Functions
+Matching using Functions
 
 ```javascript
 // Yeah, with functions!
 match({ name: "Samus" }, hero => hero.name.length >= 5); // => true
 ```
 
-- Regular expressions
+Matching using regular expressions
 
 ```javascript
 // Yeah, with RegExp too!
 match("Kvothe", /K.ot.*e?/); // => true
 ```
 
-Also, can check JSON types using constructor functions
+Also, `match-json` can check JSON types using constructor functions
 
 ```javascript
 // Yeah, with RegExp too!
@@ -84,7 +82,7 @@ match(
 
 ### Partials
 
-`match-json` also have support for partials.
+There is also support for partials.
 
 ```
 import match, { partial } from 'match-json';
