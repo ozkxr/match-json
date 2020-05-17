@@ -1,29 +1,32 @@
 {
   "name": "match-json",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "type": "module",
-  "description": "A JavaScript library to test JSON APIs",
+  "description": "A light assertion library built with JSON APIs in mind.",
   "keywords": [
     "match",
     "json",
     "api",
     "test",
+    "assert",
     "revursive"
   ],
   "main": "index.js",
   "scripts": {
-    "test": "ava",
+    "test": "lab",
     "lint": "eslint ./lib/* index.js"
   },
   "author": "Oscar Menéndez <omenendez7@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^2.2.0",
-    "eslint": "^6.0.1",
-    "eslint-config-airbnb": "^17.1.1"
+    "@hapi/lab": "^22.0.4",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.5"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ozkxr/match-json"
+    "type": "git",
+    "url": "https://github.com/ozkxr/match-json"
   }
 }

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Test a JSON object
@@ -8,4 +8,4 @@
  * @return {Boolean} The boolean result of the test.
  * @api public
  */
-module.exports = require('./lib/match');
+module.exports = require("./lib/match");

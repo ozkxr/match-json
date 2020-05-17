@@ -1,30 +1,32 @@
-'use strict';
+"use strict";
 
-import test from 'ava';
-import type from '../lib/type';
+const Lab = require("@hapi/lab");
+const type = require("../lib/type");
 
-test('type:string', t => t.true(type('This is a string!') === 'string'));
+const { it } = (exports.lab = Lab.script());
 
-test('type:number', t => t.true(type(3.141592) === 'number'));
+it("type:string", (t) => type("This is a string!") === "string");
 
-test('type:boolean_false', t => t.true(type(false) === 'boolean'));
+it("type:number", (t) => type(3.141592) === "number");
 
-test('type:boolean_true', t => t.true(type(true) === 'boolean'));
+it("type:boolean_false", (t) => type(false) === "boolean");
 
-test('type:undefined', t => t.true(type(undefined) === 'undefined'));
+it("type:boolean_true", (t) => type(true) === "boolean");
 
-test('type:regexp', t => t.true(type(/abc/) === 'regexp'));
+it("type:undefined", (t) => type(undefined) === "undefined");
 
-test('type:regex_whith_flags', t => t.true(type(/abc/ig) === 'regexp'));
+it("type:regexp", (t) => type(/abc/) === "regexp");
 
-test('type:function', t => t.true(type(function(){}) === 'function'));
+it("type:regex_whith_flags", (t) => type(/abc/gi) === "regexp");
 
-test('type:object', t => t.true(type({ prop: 'value' }) === 'object'));
+it("type:function", (t) => type(function () {}) === "function");
 
-test('type:object_with_constructor', t => t.true(type(new Object()) === 'object'));
+it("type:object", (t) => type({ prop: "value" }) === "object");
 
-test('type:array', t => t.true(type([ 1, 2 ]) === 'array'));
+it("type:object_with_constructor", (t) => type(new Object()) === "object");
 
-test('type:map', t => t.true(type(new Map()) === 'map'));
+it("type:array", (t) => type([1, 2]) === "array");
 
-test('type:set', t => t.true(type(new Set()) === 'set'));
+it("type:map", (t) => type(new Map() === "map"));
+
+it("type:set", (t) => type(new Set() === "set"));
