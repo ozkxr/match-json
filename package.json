@@ -1,6 +1,6 @@
 {
   "name": "match-json",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "A light assertion library built with JSON APIs in mind.",
   "keywords": [
     "match",
@@ -18,12 +18,12 @@
   "author": "Oscar Menéndez <omenendez7@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@hapi/lab": "^22.0.4",
-    "@hapi/code": "^5.2.4",
-    "eslint": "^7.0.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "prettier": "^2.0.5"
+    "@hapi/code": "^8.0.7",
+    "@hapi/lab": "^24.5.1",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
   },
   "repository": {
     "type": "git",
