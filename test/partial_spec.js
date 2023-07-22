@@ -95,8 +95,72 @@ it("partial:object_with_regex_and_functions_fails_all", (t) =>
     partial({ name: "oscar", age: 23 }, { name: /ped/, age: (x) => x < 18 })
   ).to.equal(false));
 
-it("match:object_same_lenght_different_keys", (t) =>
+it("partial:object_same_lenght_different_keys", (t) =>
   expect(partial({ value: {} }, { league: {} })).to.equal(false));
+
+// Falsy keys
+
+it("partial:object_null_key_false", (t) =>
+  expect(partial({}, { null: {} })).to.equal(false));
+
+it("partial:object_null_key_true", (t) =>
+  expect(partial({ null: {} }, { null: {} })).to.equal(true));
+
+it("partial:object_undefined_key_false", (t) =>
+  expect(partial({}, { undefined: {} })).to.equal(false));
+
+it("partial:object_undefined_key_true", (t) =>
+  expect(partial({ undefined: {} }, { undefined: {} })).to.equal(true));
+
+it("partial:object_nan_key_false", (t) =>
+  expect(partial({}, { NaN: {} })).to.equal(false));
+
+it("partial:object_nan_key_true", (t) =>
+  expect(partial({ NaN: {} }, { NaN: {} })).to.equal(true));
+
+it("partial:object_zero_key_false", (t) =>
+  expect(partial({}, { 0: {} })).to.equal(false));
+
+it("partial:object_zero_key_true", (t) =>
+  expect(partial({ 0: {} }, { 0: {} })).to.equal(true));
+
+it("partial:object_emptystring_key_false", (t) =>
+  expect(partial({}, { "": {} })).to.equal(false));
+
+it("partial:object_emptystring_key_true", (t) =>
+  expect(partial({ "": {} }, { "": {} })).to.equal(true));
+
+it("partial:object_false_key_false", (t) =>
+  expect(partial({}, { false: {} })).to.equal(false));
+
+it("partial:object_false_key_true", (t) =>
+  expect(partial({ false: {} }, { false: {} })).to.equal(true));
+
+// Falsy values
+
+it("partial:object_null_null_value_true", (t) =>
+  expect(partial({ a: null }, { a: null })).to.equal(true));
+
+it("partial:object_undefined_undefined_value_true", (t) =>
+  expect(partial({ a: undefined }, { a: undefined })).to.equal(true));
+
+it("partial:object_false_false_value_true", (t) =>
+  expect(partial({ a: false }, { a: false })).to.equal(true));
+
+it("partial:object_zero_zero_value_true", (t) =>
+  expect(partial({ a: 0 }, { a: 0 })).to.equal(true));
+
+it("partial:object_emptystring_emptystring_value_true", (t) =>
+  expect(partial({ a: "" }, { a: "" })).to.equal(true));
+
+it("partial:object_nan_nan_value_true", (t) =>
+  expect(partial({ a: NaN }, { a: NaN })).to.equal(false));
+
+it("partial:object_emptyobject_emptyobject_value_true", (t) =>
+  expect(partial({ a: {} }, { a: {} })).to.equal(true));
+
+it("partial:object_emptyarray_emptyarray_value_true", (t) =>
+  expect(partial({ a: [] }, { a: [] })).to.equal(true));
 
 /**
  * Arrays

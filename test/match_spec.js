@@ -91,6 +91,70 @@ it("match:object_with_regex_and_functions_fails_all", (t) =>
 it("match:object_same_lenght_different_keys", (t) =>
   expect(match({ value: {} }, { league: {} })).to.equal(false));
 
+// Falsy keys
+
+it("match:object_null_key_false", (t) =>
+  expect(match({ null: {} }, {})).to.equal(false));
+
+it("match:object_null_key_true", (t) =>
+  expect(match({ null: {} }, { null: {} })).to.equal(true));
+
+it("match:object_undefined_key_false", (t) =>
+  expect(match({ undefined: {} }, {})).to.equal(false));
+
+it("match:object_undefined_key_true", (t) =>
+  expect(match({ undefined: {} }, { undefined: {} })).to.equal(true));
+
+it("match:object_nan_key_false", (t) =>
+  expect(match({ NaN: {} }, {})).to.equal(false));
+
+it("match:object_nan_key_true", (t) =>
+  expect(match({ NaN: {} }, { NaN: {} })).to.equal(true));
+
+it("match:object_zero_key_false", (t) =>
+  expect(match({ 0: {} }, {})).to.equal(false));
+
+it("match:object_zero_key_true", (t) =>
+  expect(match({ 0: {} }, { 0: {} })).to.equal(true));
+
+it("match:object_emptystring_key_false", (t) =>
+  expect(match({ "": {} }, {})).to.equal(false));
+
+it("match:object_emptystring_key_true", (t) =>
+  expect(match({ "": {} }, { "": {} })).to.equal(true));
+
+it("match:object_false_key_false", (t) =>
+  expect(match({ false: {} }, {})).to.equal(false));
+
+it("match:object_false_key_true", (t) =>
+  expect(match({ false: {} }, { false: {} })).to.equal(true));
+
+// Falsy values
+
+it("match:object_null_null_value_true", (t) =>
+  expect(match({ a: null }, { a: null })).to.equal(true));
+
+it("match:object_undefined_undefined_value_true", (t) =>
+  expect(match({ a: undefined }, { a: undefined })).to.equal(true));
+
+it("match:object_false_false_value_true", (t) =>
+  expect(match({ a: false }, { a: false })).to.equal(true));
+
+it("match:object_zero_zero_value_true", (t) =>
+  expect(match({ a: 0 }, { a: 0 })).to.equal(true));
+
+it("match:object_emptystring_emptystring_value_true", (t) =>
+  expect(match({ a: "" }, { a: "" })).to.equal(true));
+
+it("match:object_nan_nan_value_true", (t) =>
+  expect(match({ a: NaN }, { a: NaN })).to.equal(false));
+
+it("match:object_emptyobject_emptyobject_value_true", (t) =>
+  expect(match({ a: {} }, { a: {} })).to.equal(true));
+
+it("match:object_emptyarray_emptyarray_value_true", (t) =>
+  expect(match({ a: [] }, { a: [] })).to.equal(true));
+
 /**
  * Arrays
  */
