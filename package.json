@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "@hapi/code": "^8.0.7",
-    "@hapi/lab": "^24.5.1",
+    "@hapi/lab": "^26.0.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
